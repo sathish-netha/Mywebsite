@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Portfolio Design System - Professional & Modern */
+
+@layer base {
+  :root {
+    /* Light mode - Professional glassmorphism */
+    --background: 240 10% 96%;
+    --foreground: 240 10% 3.9%;
+    /* Glass card backgrounds - Light */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    /* Primary brand colors - Professional blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glass: 217 91% 60% / 0.1;
+    /* Secondary accent - Elegant purple */
+    --secondary: 270 95% 75%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glass: 270 95% 75% / 0.1;
+    /* Glass surfaces - Light mode */
+    --glass-primary: 0 0% 100% / 0.7;
+    --glass-secondary: 0 0% 100% / 0.4;
+    --glass-border: 0 0% 0% / 0.1;
+    /* Interactive states */
+    --muted: 240 5% 89%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    /* System colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 85%;
+    --input: 240 6% 90%;
+    --ring: 217 91% 60%;
+    /* Design tokens */
+    --radius: 1rem;
+    /* Gradients - Light mode */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60% / 0.8), hsl(270 95% 75% / 0.8));
+    --gradient-background: linear-gradient(135deg, hsl(240 10% 96%), hsl(240 20% 92%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.4));
+    /* Shadows - Light mode */
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.1);
+    --shadow-hover: 0 16px 64px hsl(217 91% 60% / 0.2);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark mode - Enhanced glassmorphism */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    /* Glass card backgrounds - Dark */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    /* Primary brand colors remain the same */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glass: 217 91% 60% / 0.1;
+    /* Secondary accent */
+    --secondary: 270 95% 75%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glass: 270 95% 75% / 0.1;
+    /* Glass surfaces - Dark mode */
+    --glass-primary: 0 0% 100% / 0.05;
+    --glass-secondary: 0 0% 100% / 0.02;
+    --glass-border: 0 0% 100% / 0.1;
+    /* Interactive states */
+    --muted: 240 5% 26%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    /* System colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 217 91% 60%;
+    /* Gradients - Dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60% / 0.8), hsl(270 95% 75% / 0.8));
+    --gradient-background: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 20% 8%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1), hsl(0 0% 100% / 0.05));
+    /* Shadows - Dark mode */
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.37);
+    --shadow-hover: 0 16px 64px hsl(217 91% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    transition: var(--transition-smooth);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    background-attachment: fixed;
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer components {
+  /* Glass morphism effects - Theme adaptive */
+  .glass-card {
+    @apply backdrop-blur-xl rounded-2xl;
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-smooth);
+  }
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  .glass-button {
+    @apply backdrop-blur-xl rounded-xl px-6 py-3 font-medium;
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-smooth);
+  }
+  .glass-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+    background: var(--gradient-primary);
+  }
+  .glass-input {
+    @apply backdrop-blur-xl rounded-xl px-4 py-3;
+    background: var(--glass-secondary);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-smooth);
+  }
+  .glass-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--shadow-glow);
+    outline: none;
+  }
+  /* Floating animations */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Skill badge */
+  .skill-badge {
+    @apply backdrop-blur-md rounded-lg px-3 py-2 text-sm;
+    background: linear-gradient(135deg, hsl(var(--primary-glass)), hsl(var(--secondary-glass)));
+    border: 1px solid var(--glass-border);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
